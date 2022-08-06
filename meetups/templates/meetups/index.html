@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+</head>
+<body>
+    <h1>All meetups!</h1>
+    <p>Hello world</p>
+    {% if show_meetups %}
+        {% for i in meetups %}
+            <h1>{{i.title}}</h1>
+        {% endfor %}
+        {% else %}
+            <h1>No meetups found!</h1>
+    {% endif %}
+</body>
+</html>
