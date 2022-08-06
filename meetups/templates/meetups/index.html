@@ -8,16 +8,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}"
 </head>
 <body>
-    <h1>All meetups!</h1>
-    <p>Hello world</p>
-    {% if show_meetups %}
-        {% for i in meetups %}
-            <h1>{{i.title}}</h1>
-        {% endfor %}
-        {% else %}
-            <h1>No meetups found!</h1>
-    {% endif %}
+    <header id="main-header">
+        <nav><a href="/meetups" id="main-logo">DjangoMeetups</a></nav>
+        <h1>We got great meetups coming up!</h1>
+        <p>Fidn the one that best suits your needs!</p>
+    </header>
+    <main>
+        <section>
+            <h2>Upcoming Meetups</h2>
+            <ol>
+                {% for meetup_item in meetups %}
+                    <li class="meetup-item">
+                        <article>
+                            <div class="meetup-summary">
+                                <div class="meetup-image">
+                                    <img src="" alt="">
+                                </div>
+                                <div class="meetup-details">
+                                    <h3>{{ meetup_item.title }}</h3>
+                                    <address>{{ meetup_item.location }}</address>
+                                </div>
+                            </div>
+                            <div class="meetup-actions">
+                                <a href="" class="btn">More Details</a>
+                            </div>
+                        </article>
+                    </li>
+                {% endfor %}
+            </ol>
+        </section>
+    </main>
 </body>
 </html>
