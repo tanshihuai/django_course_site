@@ -27,7 +27,15 @@
     
         <section id="registration">
             <h2>Join us!</h2>
-            form
+            <form action="/meetups/{{ selected_meetup.slug }}" method="POST">
+                {% csrf_token %}
+                <ul>
+                    {{ form.as_ul }}
+                </ul>
+                <div id="registration-actions">
+                    <button>Register</button>
+                </div>
+            </form>
         </section>
     </article>
     {% else %}
