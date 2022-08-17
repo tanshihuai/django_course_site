@@ -5,16 +5,16 @@
 {% block title %}{{ selected_meetup.title }}{% endblock %}
 {% block site_css %}<link rel="stylesheet" href="{% static 'meetups/styles/meetup-detail.css' %}">{% endblock %}
 
-{% block main_heading %}{{ meetup_title }}{% endblock %}
+{% block main_heading %}{{ selected_meetup.title }}{% endblock %}
 
 {% block body %}
     {% if meetup_found %}
     <article>
-        <img src="" alt= "">
+        <img id="main-image" src="{{ selected_meetup.image.url }}" alt= "{{ selected_meetup.title }}">
     
         <section id="location">
             <h2>Meetup Location</h2>
-            <address>This meetup takes place in ...</address>
+            <address>This meetup takes place in {{selected_meetup.location.name}}, {{selected_meetup.location.location}}</address>
         </section>
     
         <section id="details">
